@@ -2,66 +2,78 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
+function writePassword(password) {
   var passwordText = document.querySelector("#password");
   passwordText.value = password; 
- }
+}
 
 function generatePassword() {
+    //this is our bank of characters   
+    var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
     var passwordLength = prompt("password must be at least 8 characters long");
       if (passwordLength < 8) {
          alert("please choose a password of at least 8 characters.");
-      }
-      else {
-         alert("getting started");
-      }
-    // console.log(passwordLength);
+         return;
+        }
+     
     var wantsLowercase = confirm("do you want lowercase letters?");
-       if(wantsLowercase) {
-           alert("ok, including lowercase letters.");
-       }
-        else {
-           alert("skipping lowercase letters ");
-       }
+       if (wantsLowercase) {
+         alert("ok, including lowercase letters.");
+           charset += "abcdefghijklmnopqrstuvwxyz";
+    }
+       else {
+         alert("skipping lowercase letters ");
+    }
     var wantsUppercase = confirm("do you want Uppercase letters?");
-       if (wantsUppercase) {
+      if (wantsUppercase) {
            alert("ok, including uppercase letters.");
-       } 
+           charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    } 
        else {
            alert("skipping uppercase letters");
        }
     var wantsNumbers = confirm("do you want Numbers?");
       if (wantsNumbers) {
            alert("ok, including Numbers.");
-       } 
+           charset += "0123456789";
+          } 
        else {
            alert("skipping Numbers");
-       }
+           
+          }
     var wantsSpecialChar = confirm("do you want Special Characters?");
        if (wantsSpecialChar) {
           alert("ok, including special characters.");
-       } 
+          charset += "!@#$%^&*()_+~`|}{[]\:;?><,./-=";
+        } 
        else {
           alert("skipping special characters");
        }
-  
-console.log(wantsLowercase);
-var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]\:;?><,./-="
-var retVal = "";
-    for (var i = 0, n = charset.length; i < passwordLength; ++i) {
-        retVal += charset.charAt(Math.floor(Math.random() * n));
-    } 
+      
+      console.log(passwordLength);
+      console.log(wantsLowercase);
+      console.log(wantsUppercase);
+      console.log(wantsNumbers);
+      console.log(wantsSpecialChar);
+
+
+      var passwordGen = "";
+      for (var i = 0; i < passwordLength; i++) {
+        passwordGen += charset[Math.floor(Math.random() * charset.length)];
+      } 
+      console.log(passwordGen);
+      //pass our generated password to writePassword() so that it can go on the page
+      writePassword(passwordGen);
+
   }
-    // console.log(retVal);
-// confirm()
+   
 
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click",() => {
-  writePassword();
-})
+generateBtn.addEventListener("click", generatePassword);
 
 
 // var person = prompt("Please enter your name", "Harry Potter");
