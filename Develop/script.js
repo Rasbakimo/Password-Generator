@@ -52,11 +52,11 @@ function generatePassword() {
           alert("skipping special characters");
        }
       
-      console.log(passwordLength);
-      console.log(wantsLowercase);
-      console.log(wantsUppercase);
-      console.log(wantsNumbers);
-      console.log(wantsSpecialChar);
+      // console.log(passwordLength);
+      // console.log(wantsLowercase);
+      // console.log(wantsUppercase);
+      // console.log(wantsNumbers);
+      // console.log(wantsSpecialChar);
 
 
       var passwordGen = "";
