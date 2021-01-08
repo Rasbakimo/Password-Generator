@@ -9,12 +9,12 @@ function writePassword(password) {
 
 function generatePassword() {
     //this is our bank of characters   
-    var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var charset = "";
 
 
-    var passwordLength = prompt("password must be at least 8 characters long");
-      if (passwordLength < 8) {
-         alert("please choose a password of at least 8 characters.");
+    var passwordLength = prompt("password must be at least 8 characters and less than 128 long");
+      if (passwordLength < 8|| passwordLength >128) {
+         alert("please choose a password of at least 8 but less than 128 characters.");
          return;
         }
      
