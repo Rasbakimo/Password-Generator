@@ -58,14 +58,19 @@ $(document).ready(function() {
       // console.log(wantsNumbers);
       // console.log(wantsSpecialChar);
       var passwordGen = "";
-      for (var i = 0; i < passwordLength; i++) {
-        passwordGen += charset[Math.floor(Math.random() * charset.length)];
-      }
+      
+       passwordLength.foreach((passwordGen)=> 
+
+       passwordGen += charset[Math.floor(Math.random() * charset.length)
+
+      ]);
+
+      // for (var i = 0; i < passwordLength; i++) {
+      //   passwordGen += charset[Math.floor(Math.random() * charset.length)];
+      // }
       // console.log(passwordGen);
       //pass our generated password to writePassword() so that it can go on the page
      writePassword(passwordGen);
     });
    
 });
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
